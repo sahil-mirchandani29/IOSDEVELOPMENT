@@ -69,7 +69,7 @@ public extension DriveFunctions{
         }
     }
     
-    func getFolders() {
+    func getFolders(completion: ([String]) -> ()) {
         if let id = DriveFunctions.rootFolderID, let user = DriveFunctions.googleUser{
             populateFolders(service: DriveFunctions.googleDriveService, user: user, parentID: id)
         }
@@ -78,5 +78,6 @@ public extension DriveFunctions{
                 populateRootFolder(user: user, service: DriveFunctions.googleDriveService)
             }
         }
+        completion(DriveFunctions.folders)
     }
 }

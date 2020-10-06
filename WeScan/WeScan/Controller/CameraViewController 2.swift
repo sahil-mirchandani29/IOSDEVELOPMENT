@@ -30,8 +30,9 @@ class CameraViewController: UIViewController, VNDocumentCameraViewControllerDele
         folderPickerView.dataSource = self
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
         DriveFunctions.CameraViewController = self
-        driveFunctions.getFolders()
-        
+        driveFunctions.getFolders(completion: { (fold) in
+            self.folders = fold
+        })
     }
     override func viewDidAppear(_ animated: Bool) {
         if(didCancel == false){
@@ -73,7 +74,6 @@ extension CameraViewController{
         }
         imgView.image = scan.imageOfPage(at: 0)
         controller.dismiss(animated: true)
-        selectedRow = folders[0]
     }
     func documentCameraViewControllerDidCancel(_ controller: VNDocumentCameraViewController) {
         didCancel = true

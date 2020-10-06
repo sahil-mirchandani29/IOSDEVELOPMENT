@@ -27,9 +27,7 @@ public class DriveFunctions{
     static var uploadIDs = [String: String]()
     static var folderViewController: FolderViewController?
     static var CameraViewController: CameraViewController?
-    static var ImagesViewController: ImagesViewController?
-    //------------------------------------------------------
-    static var imageIDs = [String: [String]](){
+    static var imageIDs = [String: Set<String>](){
         didSet{
             updateImages()
         }

@@ -29,8 +29,10 @@ class FolderViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool){
         super.viewDidAppear(animated)
-        driveFunctions.getFolders()
-        
+        driveFunctions.getFolders(){(folder) -> Void in
+            self.folders = folder
+        }
+        driveFunctions.populateImages()
     }
     
 
@@ -39,11 +41,9 @@ class FolderViewController: UIViewController {
         let alert = UIAlertController(title: "Craete New Folder", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add New Folder", style: .default)
             { (action) in
-                if (textField.text != ""){
-                    self.driveFunctions.createDriveFolder(name: textField.text!, root: false)
-                    self.folders.append(textField.text!)
-                    self.folders.sort()
-                }
+                self.driveFunctions.createDriveFolder(name: textField.text!, root: false)
+                self.folders.append(textField.text!)
+                self.folders.sort()
         }
         alert.addTextField
             { (alertTextField) in
@@ -76,7 +76,6 @@ extension FolderViewController:UITableViewDataSource, UITableViewDelegate{
             let ImagesViewController = segue.destination as! ImagesViewController
             if let folder = selectedRow{
                  ImagesViewController.folderName = folder
-                driveFunctions.populateImages(folder: folder)
             }
         }
     }

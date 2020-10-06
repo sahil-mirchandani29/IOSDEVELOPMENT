@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        var APIKey = "/*YOUR API KEY*/"
+        let APIKey = "170216254482-52m3vge6mvv66114s3336tkc8e6r7c48.apps.googleusercontent.com"
         GIDSignIn.sharedInstance()?.clientID = APIKey
 
         return true

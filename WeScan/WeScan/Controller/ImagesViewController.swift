@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftGifOrigin
 
 class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
  
@@ -14,6 +15,12 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var titleLabel: UILabel!
     var image: UIImageView?
     var folderName: String?
+    var selectedrow: Int?
+    var numberOfImages: Int?{
+        didSet{
+            ImagesCollectionView.reloadData()
+        }
+    }
     var images: [UIImage]=[]
     var driveFunctions = DriveFunctions()
 
@@ -22,11 +29,14 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
         ImagesCollectionView.delegate = self;
         ImagesCollectionView.dataSource = self;
+        DriveFunctions.ImagesViewController = self;
         let nibCell = UINib(nibName: "CollectionViewCell", bundle: nil)
         ImagesCollectionView.register(nibCell, forCellWithReuseIdentifier: "CollectionViewCell")
         if let name = folderName{
             titleLabel.text = name
+            //numberOfImages = DriveFunctions.imageIDs[name]?.count
         }
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -45,41 +55,57 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
 extension ImagesViewController{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if let name = folderName{
-        if let imagesSet = DriveFunctions.imageIDs[name]{
-            for imageID in imagesSet{
-                if let image = DriveFunctions.images[imageID]{
-                    images.append(image)
-                }
+        if let number = numberOfImages{
+            if(number > 0){
+                return number
             }
-            if(imagesSet.count == 0){
-                return 1
-            }
-            return imagesSet.count
-        }
         }
         return 1
      }
      
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
-        if(images.count != 0){
-            if(images.count > indexPath.row){
-                cell.cellImgView.image = images[indexPath.row]
-                cell.imgTitle.text = "1.jpg"
+        
+        DispatchQueue.main.async {
+            let tempfolder = NSTemporaryDirectory()
+            var flag = false
+            if let number = self.numberOfImages{
+                if(number >= indexPath.row && number != 0 ){
+                    if let id = DriveFunctions.imageIDs[self.folderName!]{
+                        if let image = UIImage(contentsOfFile: "\(tempfolder)/\(String(describing: id[indexPath.row])).jpg"){
+                              cell.cellImgView.image = image
+                                flag = true
+                          }
+                        }
+                    }
+                }
+                if(flag == false){
+                    cell.cellImgView.image = UIImage(named: "Nodata")
+                }
             }
-            else{
-                cell.cellImgView.image = UIImage(named: "Nodata")
-                cell.imgTitle.text = ""
-            }
-        }
-        else{
-            cell.cellImgView.image = UIImage(named: "Nodata")
-            cell.imgTitle.text = ""
-        }
-        cell.layer.borderColor = UIColor.darkGray.cgColor
-        cell.layer.borderWidth = 1
+   
+        cell.imgTitle.text = ""
+        
+        //cell.layer.borderColor = UIColor.darkGray.cgColor
+        //cell.layer.borderWidth = 1
         return cell
         
      }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedrow = indexPath.row
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "ImageSegue", sender: self)
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ImageSegue"{
+            let imageViewController = segue.destination as! ImageViewController
+            if let id = DriveFunctions.imageIDs[self.folderName!]{
+            let tempfolder = NSTemporaryDirectory()
+            if let image = UIImage(contentsOfFile: "\(tempfolder)/\(String(describing: id[selectedrow!])).jpg"){
+                imageViewController.image = image
+              }
+            }
+        }
+    }
 }

@@ -26,6 +26,7 @@
 		7F719EC024C415F500F0E1E1 /* uploadImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719EBF24C415F500F0E1E1 /* uploadImages.swift */; };
 		7F719EC224C4161400F0E1E1 /* getImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719EC124C4161400F0E1E1 /* getImages.swift */; };
 		7FE751D9C9B50EE76A66E20F /* Pods_WeScan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74A81F2B528E9CB0107A003 /* Pods_WeScan.framework */; };
+		7FFEB60724D7C81E006FB31F /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFEB60624D7C81E006FB31F /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		7F719EBD24C3ED5800F0E1E1 /* CreateFolders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolders.swift; sourceTree = "<group>"; };
 		7F719EBF24C415F500F0E1E1 /* uploadImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadImages.swift; sourceTree = "<group>"; };
 		7F719EC124C4161400F0E1E1 /* getImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getImages.swift; sourceTree = "<group>"; };
+		7FFEB60624D7C81E006FB31F /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageViewController.swift; path = Pods/ImageViewController.swift; sourceTree = SOURCE_ROOT; };
 		A8F57268D423AE2A9561BA65 /* Pods-WeScan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeScan.debug.xcconfig"; path = "Target Support Files/Pods-WeScan/Pods-WeScan.debug.xcconfig"; sourceTree = "<group>"; };
 		C6F79EFCD0CCBE3B34C268E7 /* Pods-WeScan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeScan.release.xcconfig"; path = "Target Support Files/Pods-WeScan/Pods-WeScan.release.xcconfig"; sourceTree = "<group>"; };
 		D74A81F2B528E9CB0107A003 /* Pods_WeScan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeScan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +115,7 @@
 		7F719EA624C287A000F0E1E1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7FFEB60624D7C81E006FB31F /* ImageViewController.swift */,
 				7F719E9524C2857C00F0E1E1 /* ViewController.swift */,
 				7F719EAC24C299D200F0E1E1 /* FolderViewController.swift */,
 				7F719EAE24C2AA3400F0E1E1 /* UserDetailsViewController.swift */,
@@ -304,6 +307,7 @@
 				7F719E9624C2857C00F0E1E1 /* ViewController.swift in Sources */,
 				7F719EBA24C3962D00F0E1E1 /* getFolders.swift in Sources */,
 				7F719EBC24C39F5100F0E1E1 /* DriveFunctions.swift in Sources */,
+				7FFEB60724D7C81E006FB31F /* ImageViewController.swift in Sources */,
 				7F719E9224C2857C00F0E1E1 /* AppDelegate.swift in Sources */,
 				7F719E9424C2857C00F0E1E1 /* SceneDelegate.swift in Sources */,
 				7F719EB124C2AA4F00F0E1E1 /* CameraViewController.swift in Sources */,

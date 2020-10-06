@@ -47,6 +47,7 @@ extension ViewController: GIDSignInDelegate, GIDSignInUIDelegate {
             DriveFunctions.userEmail = user.profile.email
             DriveFunctions.googleDriveService.authorizer = user.authentication.fetcherAuthorizer()
             DriveFunctions.googleUser = user
+            driveFunctions.getFolders()
             driveFunctions.populateRootFolder(user: DriveFunctions.googleUser!, service: DriveFunctions.googleDriveService)
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "LoggedIn", sender: self)

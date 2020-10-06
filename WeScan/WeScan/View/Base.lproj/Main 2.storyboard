@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -169,27 +169,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IuU-NG-YVi">
-                                <rect key="frame" x="342" y="2" width="35" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="35" id="73w-E3-d2v"/>
-                                    <constraint firstAttribute="height" constant="30" id="Mfd-Km-qhM"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="folder.badge.plus" catalog="system"/>
-                                <connections>
-                                    <action selector="addNewFolderPressed:" destination="HVU-sH-ek1" eventType="touchUpInside" id="Xny-zN-PH7"/>
-                                </connections>
-                            </button>
-                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gJr-cj-awO">
-                                <rect key="frame" x="10" y="40" width="394" height="634"/>
+                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gJr-cj-awO">
+                                <rect key="frame" x="20" y="79" width="339" height="680"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Folder" textLabel="19l-Wb-WbU" detailTextLabel="xo4-dy-421" style="IBUITableViewCellStyleValue1" id="gaZ-Fx-hJk">
-                                        <rect key="frame" x="0.0" y="28" width="394" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="339" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gaZ-Fx-hJk" id="hx8-aa-6dK">
-                                            <rect key="frame" x="0.0" y="0.0" width="363" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="308" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="19l-Wb-WbU">
@@ -200,7 +190,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Images" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xo4-dy-421">
-                                                    <rect key="frame" x="299.5" y="12" width="55.5" height="20.5"/>
+                                                    <rect key="frame" x="244.5" y="12" width="55.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -213,16 +203,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IuU-NG-YVi">
+                                <rect key="frame" x="327" y="45" width="32" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="folder.badge.plus" catalog="system"/>
+                                <connections>
+                                    <action selector="addNewFolderPressed:" destination="HVU-sH-ek1" eventType="touchUpInside" id="Xny-zN-PH7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Njj-2G-41d" firstAttribute="trailing" secondItem="IuU-NG-YVi" secondAttribute="trailing" constant="37" id="6Ad-mK-y7M"/>
-                            <constraint firstItem="Njj-2G-41d" firstAttribute="bottom" secondItem="gJr-cj-awO" secondAttribute="bottom" constant="85" id="7qu-dx-dEi"/>
-                            <constraint firstItem="gJr-cj-awO" firstAttribute="top" secondItem="IuU-NG-YVi" secondAttribute="bottom" constant="8.5" id="7zj-QT-8xe"/>
-                            <constraint firstItem="IuU-NG-YVi" firstAttribute="top" secondItem="Njj-2G-41d" secondAttribute="top" constant="1.5" id="T5i-5b-eRa"/>
-                            <constraint firstItem="gJr-cj-awO" firstAttribute="leading" secondItem="Njj-2G-41d" secondAttribute="leading" constant="10" id="Unk-Nq-VQ6"/>
-                            <constraint firstAttribute="trailing" secondItem="gJr-cj-awO" secondAttribute="trailing" constant="10" id="kxm-JZ-bKy"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Njj-2G-41d"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Folders" image="folder" catalog="system" selectedImage="folder" id="6wm-uc-K8o"/>
@@ -294,7 +284,6 @@
                         <outlet property="ImagesCollectionView" destination="uQd-N5-KHl" id="DKg-2s-1Tl"/>
                         <outlet property="titleLabel" destination="XxB-Ml-Ss8" id="yx2-le-JLY"/>
                         <segue destination="ywX-ZB-BPg" kind="presentation" identifier="cameraButtonPressed" id="Ch5-zv-hRT"/>
-                        <segue destination="fuZ-Hx-Oos" kind="showDetail" identifier="ImageSegue" id="vOJ-d0-Jdq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REx-a7-Nzb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -320,55 +309,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VDD-be-C5i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1172" y="127"/>
-        </scene>
-        <!--Image View Controller-->
-        <scene sceneID="LVD-RD-IE2">
-            <objects>
-                <viewController modalTransitionStyle="partialCurl" modalPresentationStyle="fullScreen" id="fuZ-Hx-Oos" customClass="ImageViewController" customModule="WeScan" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="BGr-wP-zgh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" maximumZoomScale="10" translatesAutoresizingMaskIntoConstraints="NO" id="s8n-Br-eys">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oQf-aC-bet">
-                                        <rect key="frame" x="0.0" y="132" width="414" height="554"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="554" id="b0z-Qh-jig"/>
-                                            <constraint firstAttribute="width" constant="414" id="zEv-nM-fAM"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="oQf-aC-bet" firstAttribute="centerX" secondItem="s8n-Br-eys" secondAttribute="centerX" id="B3q-NX-L54"/>
-                                    <constraint firstItem="oQf-aC-bet" firstAttribute="centerY" secondItem="s8n-Br-eys" secondAttribute="centerY" id="hny-U5-ago"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="fO5-sU-NQD"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="1Cn-aH-qbz"/>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="s8n-Br-eys" firstAttribute="leading" secondItem="4LP-Hz-dw4" secondAttribute="leading" id="0ky-0O-FP3"/>
-                            <constraint firstItem="s8n-Br-eys" firstAttribute="trailing" secondItem="4LP-Hz-dw4" secondAttribute="trailing" id="KZH-gv-qYU"/>
-                            <constraint firstItem="s8n-Br-eys" firstAttribute="top" secondItem="4LP-Hz-dw4" secondAttribute="top" id="TWc-zp-eI2"/>
-                            <constraint firstItem="s8n-Br-eys" firstAttribute="top" secondItem="4LP-Hz-dw4" secondAttribute="top" id="boH-kJ-Akz"/>
-                            <constraint firstItem="s8n-Br-eys" firstAttribute="bottom" secondItem="4LP-Hz-dw4" secondAttribute="bottom" id="dwc-ep-3IP"/>
-                            <constraint firstItem="s8n-Br-eys" firstAttribute="bottom" secondItem="4LP-Hz-dw4" secondAttribute="bottom" id="sqa-Te-ee0"/>
-                            <constraint firstItem="s8n-Br-eys" firstAttribute="trailing" secondItem="4LP-Hz-dw4" secondAttribute="trailing" id="wqe-JJ-ARS"/>
-                            <constraint firstItem="s8n-Br-eys" firstAttribute="leading" secondItem="4LP-Hz-dw4" secondAttribute="leading" id="yEA-vp-ln2"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="4LP-Hz-dw4"/>
-                    </view>
-                    <connections>
-                        <outlet property="imgView" destination="oQf-aC-bet" id="NbT-Lc-xua"/>
-                        <outlet property="scorllView" destination="s8n-Br-eys" id="DjI-Tp-meY"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="E95-YJ-VrO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4314.4927536231889" y="-202.23214285714286"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

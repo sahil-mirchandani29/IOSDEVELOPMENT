@@ -28,7 +28,6 @@ extension DriveFunctions{
             }
             let folderList = result as! GTLRDrive_FileList
             if let files = folderList.files{
-                var tempArray: [String] = []
                 
                 for i in files{
                     let fileId = i.identifier!
@@ -46,22 +45,19 @@ extension DriveFunctions{
                     fetcher.downloadProgressBlock = { (bytesWritten, totalBytesWritten, totalBytesExpectedToWrite) in
                         //print((bytesWritten, totalBytesWritten, totalBytesExpectedToWrite))
                     }
-                    tempArray.append(i.identifier!)
+                    DriveFunctions.imageIDs[parentName]?.insert(i.identifier!)
                 }
-                DriveFunctions.imageIDs[parentName] = tempArray
-                DriveFunctions.ImagesViewController?.numberOfImages = DriveFunctions.imageIDs[parentName]?.count
-                
             }
         }
     }
     
-    func populateImages(folder: String){
-        if let user = DriveFunctions.googleUser, let id = DriveFunctions.uploadIDs[folder]{
-            print("getting images for \(folder)")
-            getFileList(service: DriveFunctions.googleDriveService, user: user, parentID: id, parentName: folder)
-        }
-    }
-    func NumberOfImages(folder: String){
+    func populateImages(){
         
+        for folder in DriveFunctions.folders{
+            if let user = DriveFunctions.googleUser, let id = DriveFunctions.uploadIDs[folder]{
+                print("getting images for \(folder)")
+                getFileList(service: DriveFunctions.googleDriveService, user: user, parentID: id, parentName: folder)
+            }
+        }
     }
 }
